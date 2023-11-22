@@ -3,23 +3,20 @@ import { IsEmail, IsNotEmpty, IsString, isNotEmpty } from "class-validator";
 import { CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 
-export class CreateUserDto {
+export class GetUserDto {
     @IsEmail()
+    @IsNotEmpty()
     @ApiProperty({
         description: 'alp@alp.com'
     })
     email: string;
 
-    @IsString()
+    @IsNotEmpty()
     password: string;
 
-    @IsString()
-    @IsNotEmpty()
-    username: string;
+    // username: string;
 
-    @CreateDateColumn()
-    createdAt!: Date;
+    // createdAt: Date;
 
-    @UpdateDateColumn()
-    updatedAt!: Date;
+    // updatedAt: Date;
 }
