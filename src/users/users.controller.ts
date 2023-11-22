@@ -25,17 +25,11 @@ import { User }                 from './entities/user.entity';
 import { AuthGuard }            from 'src/guards/auth.guard';
 
 @Controller('users')
-@UseGuards(AuthGuard)
+//@UseGuards(AuthGuard)
 @Serialize(UserDto)
 @UseInterceptors(CurrentUserInterceptor)
 export class UsersController {
     constructor(private usersService: UsersService, private authService: AuthService) {}
-
-    @Get('/whoami')
-    //@UseGuards(AuthGuard)
-    whoami(@CurrentUser() user: User) {
-        return user;
-    } 
 
     // @Post('/sign-out')
     // signOut(@Session() session: any) {
